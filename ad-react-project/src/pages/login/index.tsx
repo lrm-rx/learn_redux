@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import './index.scss'
+import './style.scss'
 
 class Login extends PureComponent {
   render() {

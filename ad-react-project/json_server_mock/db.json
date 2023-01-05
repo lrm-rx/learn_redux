@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "ming",
+      "age": 20
+    },
+    {
+      "id": 2,
+      "name": "xiaohu",
+      "age": 21
+    }
+  ],
+  "likes": []
+}
