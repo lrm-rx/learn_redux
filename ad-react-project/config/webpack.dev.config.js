@@ -41,7 +41,7 @@ const webpackConfigDev = {
         }
       }
     },
-    // contentBase: path.join(__dirname, '../src'),
+    contentBase: path.join(__dirname, '../src'), // 可以将本地的静态资料加载, 如: img中的src
     // before(app) {
     //   const projectDir = path.resolve();
     //   const mockDir = './mock';

@@ -10,29 +10,31 @@ const webpackBaseConfig = {
     filename: '[name].[fullhash:4].js',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.tsx'],
+    extensions: ['.js', '.ts', '.jsx', '.tsx'],
     alias: {
-      "@": path.resolve(__dirname, '../src'),
+      '@': path.resolve(__dirname, '../src'),
       pages: path.join(__dirname, '../src/pages')
     }
   },
   module: {
     rules: [
       {
-        test: /\.js[x]/,
-        use: 'babel-loader'
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
       },
       {
-        test: /\.ts[x]/,
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
         use: {
-          loader: 'ts-loader',
+          loader: "ts-loader",
           // options: {
           //   transpileOnly: true
           // }
         }
       },
       {
-        test: /\.(sc|c)ss/,
+        test: /\.(sc|c)ss$/,
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',

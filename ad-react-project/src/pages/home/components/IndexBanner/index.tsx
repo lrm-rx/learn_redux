@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react'
 import './style.scss'
 
-class Footer extends PureComponent {
+class IndexBanner extends PureComponent {
   render() {
     return (
-      <div>Footer</div>
+      <div>IndexBanner</div>
     )
   }
 }
 
-export default Footer
+export default IndexBanner
