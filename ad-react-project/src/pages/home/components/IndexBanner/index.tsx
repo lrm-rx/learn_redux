@@ -1,11 +1,21 @@
 import React, { PureComponent } from 'react'
+import { Carousel } from 'antd';
 import './style.scss'
 
 class IndexBanner extends PureComponent {
   render() {
     return (
-      <div>IndexBanner</div>
-    )
+      <div className="index-banner-component-box">
+        <Carousel autoplay>
+          <div>
+            <img src="assets/imgs/index-banner1.png" alt="" />
+          </div>
+          <div>
+            <img src="assets/imgs/index-banner2.png" alt="" />
+          </div>
+        </Carousel>
+      </div>
+    );
   }
 }
 

@@ -1,0 +1,43 @@
+.search-promotion-account-component-box {
+  width: 100%;
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #282c33;
+  box-shadow: 1px 1px 20px 0 rgba(183,183,188,.3);
+
+  .name {
+      font-weight: 600;
+  }
+  .info {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+
+      .info-item {
+          margin-top: 10px;
+          margin-right: 32px;
+          .title-text {
+              font-weight: 600;
+              margin-right: 8px;
+          }
+          .circle {
+              width: 10px;
+              height: 10px;
+              margin-right: 5px;
+              border-radius: 50%;
+              background-color: orange;
+              display: inline-block;
+          }
+          .value-text {
+              // color: #282c33;
+              margin-right: 8px;
+          }
+          .value-star {
+              padding-left: 8px;
+          }
+      }
+  }
+}

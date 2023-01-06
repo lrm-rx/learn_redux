@@ -38,10 +38,48 @@ class DataTrend extends PureComponent<IProps, IStates> {
         icon: 'assets/imgs/card-icon3',
         isSelected: false,
       },
+    ],
+    chartData: [
+      {
+        year: '2011',
+        value: 3,
+      },
+      {
+        year: '2012',
+        value: 4,
+      },
+      {
+        year: '2013',
+        value: 3.5,
+      },
+      {
+        year: '2014',
+        value: 5,
+      },
+      {
+        year: '2015',
+        value: 4.9,
+      },
+      {
+        year: '2016',
+        value: 6,
+      },
+      {
+        year: '2017',
+        value: 7,
+      },
+      {
+        year: '2018',
+        value: 9,
+      },
+      {
+        year: '2019',
+        value: 13,
+      },
     ]
   }
   handleCardTabsChange = (selectedId: string) => {
-    const { cardData } = this.state;
+    const { cardData, chartData } = this.state;
     const newCardData = cardData.map((cardItem: CardItemType) => {
       const tempCardItem = cloneDeep(cardItem);
       if (tempCardItem.id === selectedId) {
@@ -51,12 +89,18 @@ class DataTrend extends PureComponent<IProps, IStates> {
       }
       return tempCardItem;
     });
+    const newChartData = chartData.map((chartItem) => {
+      const tempChartItem = cloneDeep(chartItem);
+      tempChartItem.value += 2;
+      return tempChartItem;
+    });
     this.setState({
-      cardData: newCardData
+      cardData: newCardData,
+      chartData: newChartData,
     });
   }
   render() {
-    const { cardData } = this.state
+    const { cardData, chartData } = this.state
     return (
       <div className="data-trend-component-box">
         <CardTabs
@@ -64,7 +108,7 @@ class DataTrend extends PureComponent<IProps, IStates> {
           onChange={(selectedId: string) => this.handleCardTabsChange(selectedId)}
         />
         <div className="line-chart-box">
-          <LineChart />
+          <LineChart chartData={chartData} />
         </div>
       </div>
     )

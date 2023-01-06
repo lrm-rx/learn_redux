@@ -27,7 +27,7 @@ class CardItem extends PureComponent<IProps, IStates> {
 
     return (
       <div className={cardItemStyle} onClick={() => { this.handleClick(id); }}>
-        <img className="icon" src={require(`@/assets/imgs/${iconPath}`)} alt="" />
+        <img className="icon" src={iconPath} alt="" />
         <div className="info">
           <div className="name-persent">
             <div className={nameTextStyle}>{name}</div>

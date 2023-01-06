@@ -20,35 +20,28 @@
       
       .chart-area {
         height: 440px;
-        border: 1px solid red;
+        // border: 1px solid #ccc;
       }
       .promotion-card-area {
-        height: 100px;
         margin-top: 20px;
-        border: 1px solid red;
       }
       .product-area {
-        height: 356px;
         margin-top: 20px;
-        border: 1px solid red;
       }
     }
     .right-content {
       width: 288px;
 
       .account-area {
-        height: 266px;
-        border: 1px solid red;
+        height: auto;
       }
       .index-banner-area {
         height: 150px;
         margin-top: 20px;
-        border: 1px solid red;
       }
       .product-news-area {
-        height: 360px;
+        height: auto;
         margin-top: 20px;
-        border: 1px solid red;
       }
     }
   }

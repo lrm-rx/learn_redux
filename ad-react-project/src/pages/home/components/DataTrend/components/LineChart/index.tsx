@@ -1,10 +1,47 @@
 import React, { PureComponent } from 'react'
+import { Line } from '@ant-design/charts'
 import './style.scss'
 
-class LineChart extends PureComponent {
+interface IProps {
+  chartData: any[]
+}
+interface IStates { }
+
+class LineChart extends PureComponent<IProps, IStates> {
   render() {
+    const { chartData } = this.props;
+    const config = {
+      // autoFit: true,
+      height: 250,
+      data: chartData,
+      xField: 'year',
+      yField: 'value',
+      label: {},
+      point: {
+        size: 2,
+        shape: 'diamond',
+        style: {
+          fill: 'white',
+          stroke: '#5B8FF9',
+          lineWidth: 2,
+        },
+      },
+      tooltip: { showMarkers: false },
+      state: {
+        active: {
+          style: {
+            shadowBlur: 4,
+            stroke: '#000',
+            fill: 'red',
+          },
+        },
+      },
+      interactions: [{ type: 'marker-active' }],
+    };
     return (
-      <div>LineChart</div>
+      <div className="line-chart-component-box">
+        <Line {...config} />
+      </div>
     )
   }
 }
