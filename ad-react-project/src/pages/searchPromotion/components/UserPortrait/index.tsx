@@ -1,11 +1,27 @@
 import React, { PureComponent } from 'react'
-import './style.scss'
+import { Empty } from 'antd';
 
-class UserPortrait extends PureComponent {
+interface IProps { }
+
+class UserPortrait extends PureComponent<IProps> {
+  state = {
+    isEmpty: true,
+  }
   render() {
+    const { isEmpty } = this.state;
     return (
-      <div>UserPortrait</div>
-    )
+      <>
+        {
+          isEmpty ? (
+            <Empty
+              description="您的广告展现积累用户较少，无法得出准确用户画像"
+            />
+          ) : (
+            <div>用户画像信息</div>
+          )
+        }
+      </>
+    );
   }
 }
 export default UserPortrait

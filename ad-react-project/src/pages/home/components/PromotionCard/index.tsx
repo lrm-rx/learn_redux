@@ -46,7 +46,7 @@ class PromotionCard extends PureComponent<IProps, IStates> {
   state = {}
   handleEnter = () => {
     const { history } = this.props;
-    history.push('/searchPromotion');
+    history.push('/searchpromotion');
   }
   render() {
 

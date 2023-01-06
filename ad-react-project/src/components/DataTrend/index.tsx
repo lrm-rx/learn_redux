@@ -5,6 +5,32 @@ import LineChart from './components/LineChart'
 import { CardItemType } from './components/CardTabs/types';
 import './style.scss'
 
+const defaultCardData = [
+  {
+    id: '1',
+    name: '消费（元）',
+    value: 2000,
+    persent: '',
+    icon: 'assets/imgs/card-icon1',
+    isSelected: true,
+  },
+  {
+    id: '2',
+    name: '展现（次）',
+    value: 5988,
+    persent: 88.9,
+    icon: 'assets/imgs/card-icon2',
+    isSelected: false,
+  },
+  {
+    id: '3',
+    name: '点击（次）',
+    value: 199,
+    persent: 12.6,
+    icon: 'assets/imgs/card-icon3',
+    isSelected: false,
+  }
+]
 interface IProps {
   cardData?: any;
 }
@@ -13,32 +39,7 @@ interface IStates { }
 
 class DataTrend extends PureComponent<IProps, IStates> {
   state = {
-    cardData: [
-      {
-        id: '1',
-        name: '消费（元）',
-        value: 2000,
-        persent: '',
-        icon: 'assets/imgs/card-icon1',
-        isSelected: true,
-      },
-      {
-        id: '2',
-        name: '展现（次）',
-        value: 5988,
-        persent: 88.9,
-        icon: 'assets/imgs/card-icon2',
-        isSelected: false,
-      },
-      {
-        id: '3',
-        name: '点击（次）',
-        value: 199,
-        persent: 12.6,
-        icon: 'assets/imgs/card-icon3',
-        isSelected: false,
-      },
-    ],
+    cardData: this.props.cardData || defaultCardData,
     chartData: [
       {
         year: '2011',

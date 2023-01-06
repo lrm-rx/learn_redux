@@ -12,6 +12,12 @@ interface IStates { }
 
 class Header extends PureComponent<IProps, IStates> {
   state = {}
+  handleClick = (url: string) => {
+    const { history } = this.props;
+    if (history) {
+      history.push(url);
+    }
+  }
   render() {
     return (
       <div className="header-component-box">
@@ -24,6 +30,7 @@ class Header extends PureComponent<IProps, IStates> {
                   menuItemInfo={menuItem}
                   isActive={menuItem.isActive}
                   key={`index-menu-item${index.toString()}`}
+                  onClick={(url: string) => this.handleClick(url)}
                 />
               ))
             }

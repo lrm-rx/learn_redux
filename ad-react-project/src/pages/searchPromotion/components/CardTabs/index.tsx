@@ -1,11 +1,39 @@
 import React, { PureComponent } from 'react'
-import './style.scss'
+import CardItem from './CardItem';
+import { CardItemType } from './types';
+import './style.scss';
 
-class CardTabs extends PureComponent {
+interface IProps {
+  cardData: CardItemType[];
+  onChange?: (selectedId: string) => void;
+}
+
+class CardTabs extends PureComponent<IProps> {
+  handleCardItemClick = (selectedId: string) => {
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange(selectedId);
+    }
+  }
   render() {
+    const { cardData } = this.props;
     return (
-      <div>CardTabs</div>
-    )
+      <div className="search-page-card-tabs-component-box">
+        {
+          cardData.map((cardItem: CardItemType, index: number) => (
+            <CardItem
+              name={cardItem.name}
+              currentValue={cardItem.currentValue}
+              contemporaryValue={cardItem.contemporaryValue}
+              isSelected={cardItem.isSelected}
+              id={cardItem.id}
+              onClick={(selectedId: string) => { this.handleCardItemClick(selectedId); }}
+              key={`carditem${index.toString()}`}
+            />
+          ))
+        }
+      </div>
+    );
   }
 }
 export default CardTabs
