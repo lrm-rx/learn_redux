@@ -3,6 +3,7 @@ import {
   Button, Modal, Radio, InputNumber,
 } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
+import { ThemeContext, ThemeType } from '@/context/theme'
 import './style.scss'
 
 interface IProps {
@@ -21,6 +22,7 @@ interface IStates {
 }
 
 class ProCardItem extends PureComponent<IProps, IStates> {
+  static contextType = ThemeContext
   state = {
     editModalShow: false,
     budgetOption: 1,

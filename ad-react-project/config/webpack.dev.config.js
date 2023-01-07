@@ -5,6 +5,7 @@ const OpenBrowserPlugin = require('open-browser-webpack4-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const SpeedMeasuerPlugin = require('speed-measure-webpack-plugin')
 const webpackConfigBase = require('./webpack.base.config')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const mockMiddleware = require('./mock.config')
 
 const smp = new SpeedMeasuerPlugin()
@@ -22,7 +23,8 @@ const webpackConfigDev = {
     }),
     new OpenBrowserPlugin({
       url: `http://localhost:${PORT}`
-    })
+    }),
+    new ForkTsCheckerWebpackPlugin()
   ],
   devtool: 'eval-source-map',
   devServer: {
@@ -50,5 +52,5 @@ const webpackConfigDev = {
   }
 }
 
-// module.exports = merge(webpackConfigBase, webpackConfigDev)
-module.exports = smp.wrap(merge(webpackConfigBase, webpackConfigDev))
+module.exports = merge(webpackConfigBase, webpackConfigDev)
+// module.exports = smp.wrap(merge(webpackConfigBase, webpackConfigDev))

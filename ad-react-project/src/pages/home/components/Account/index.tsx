@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
-import { Button } from 'antd';
+import { Button } from 'antd'
+import { ThemeContext, ThemeType } from '@/context/theme'
 import './style.scss'
 
 interface IProps { }
@@ -9,6 +10,7 @@ interface IStates {
   creditValue: number;
 }
 class Account extends PureComponent<IProps, IStates> {
+  static contextType = ThemeContext
   state = {
     status: 0, // 0表示账户金未到, 1 表示已到
     balance: 100,
@@ -35,7 +37,7 @@ class Account extends PureComponent<IProps, IStates> {
             <div className="text">推广余额</div>
             <div className="value">{balance}</div>
           </div>
-          <Button type="primary" size="small">充值</Button>
+          <Button type={this.context.buttonType} size="small">充值</Button>
         </div>
         <div className="credit">
           <div>
@@ -48,5 +50,7 @@ class Account extends PureComponent<IProps, IStates> {
     );
   }
 }
+
+// Account.contextType = ThemeContext
 
 export default Account

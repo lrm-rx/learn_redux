@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { cloneDeep } from 'lodash';
+import { observer, inject } from 'mobx-react';
 import CardTabs from './components/CardTabs'
 import LineChart from './components/LineChart'
 import { CardItemType } from './components/CardTabs/types';
@@ -33,10 +34,14 @@ const defaultCardData = [
 ]
 interface IProps {
   cardData?: any;
+  store?: any;
+  globalStore?: any
 }
 
 interface IStates { }
 
+@inject('store', 'globalStore')
+@observer
 class DataTrend extends PureComponent<IProps, IStates> {
   state = {
     cardData: this.props.cardData || defaultCardData,
@@ -78,6 +83,12 @@ class DataTrend extends PureComponent<IProps, IStates> {
         value: 13,
       },
     ]
+  }
+  componentDidMount() {
+    const { store, globalStore } = this.props;
+    console.log('globalStore.isKAAccount', globalStore.isKAAccount);
+    store.getChartData();
+    console.log('likes data:', store.dataTrendData);
   }
   handleCardTabsChange = (selectedId: string) => {
     const { cardData, chartData } = this.state;
