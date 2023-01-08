@@ -5,11 +5,14 @@ import TodoMain from '@/components/TodoMain'
 
 const App = memo(() => {
   return (
-    <div className="todo-app">
-      <TodoHeader />
-      <TodoMain />
-      <TodoFooter />
-    </div>
+    <>
+      <p style={{color: 'deeppink'}}>注: 双击内容可进行编辑.</p>
+      <div className="todo-app">
+        <TodoHeader />
+        <TodoMain />
+        <TodoFooter />
+      </div>
+    </>
   )
 })
 
