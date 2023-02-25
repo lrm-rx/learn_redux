@@ -18,7 +18,7 @@ const TodoHeader = memo(
       };
       return (
         <div>
-          <h1>React Hook + mbox6</h1>
+          <h1>Hook + mbox6</h1>
           <input
             className="new-todo"
             placeholder="请输入并按回车添加内容"
