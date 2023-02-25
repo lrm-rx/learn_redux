@@ -12,7 +12,7 @@ const App = memo(() => {
   useEffect(() => {
     dispatch(getTodosAction());
     return () => {};
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="home">
