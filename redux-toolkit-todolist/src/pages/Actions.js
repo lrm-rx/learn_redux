@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { useDispatch } from "react-redux";
 
-const Actions = (props) => {
+const Actions = memo((props) => {
   const dispatch = useDispatch();
   return (
     <div className="actions">
@@ -12,6 +13,6 @@ const Actions = (props) => {
       </button>
     </div>
   );
-};
+});
 
 export default Actions;

@@ -1,9 +1,10 @@
+import { memo } from "react";
 import { BiCircle, BiCheckCircle } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
 
-const TodoList = (props) => {
+const TodoList = memo((props) => {
   const dispatch = useDispatch();
 
   const toggleCompleted = (id, completed) => {
@@ -63,6 +64,6 @@ const TodoList = (props) => {
       })}
     </ul>
   );
-};
+});
 
 export default TodoList;

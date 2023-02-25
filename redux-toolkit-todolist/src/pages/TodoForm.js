@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-const TodoForm = (props) => {
+const TodoForm = memo((props) => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
 
@@ -35,6 +36,6 @@ const TodoForm = (props) => {
       <button onClick={onSave}>添加</button>
     </div>
   );
-};
+});
 
 export default TodoForm;
