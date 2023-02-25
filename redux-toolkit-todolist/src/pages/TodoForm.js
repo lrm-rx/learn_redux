@@ -1,8 +1,11 @@
 import { memo } from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addAction } from "../store/modules/todoSlice";
+import { getTodosAction } from "../store/modules/todoSlice";
 
 const TodoForm = memo((props) => {
+  const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
 
@@ -14,15 +17,19 @@ const TodoForm = memo((props) => {
       handleSave(title);
     }
   };
-  const handleSave = (value) => {
+  const handleSave = async (value) => {
     if (!title.trim()) {
       alert("请输入内容!");
       return;
     }
-    dispatch({
-      type: "todos/add",
-      payload: title,
-    });
+    const isSame = todos.find((item) => item.title === title);
+    if (isSame) {
+      alert("内容已经存在!");
+      return;
+    }
+    await dispatch(addAction(title));
+    await dispatch(getTodosAction());
+    setTitle("");
   };
 
   return (

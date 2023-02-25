@@ -3,6 +3,7 @@ import { BiCircle, BiCheckCircle } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
+import { delTodoAction, getTodosAction } from "../store/modules/todoSlice";
 
 const TodoList = memo((props) => {
   const dispatch = useDispatch();
@@ -21,12 +22,15 @@ const TodoList = memo((props) => {
         });
   };
 
-  const onDeleteTodo = (e, id) => {
+  const onDeleteTodo = async (e, id) => {
     e.stopPropagation();
-    dispatch({
-      type: "todos/remove",
-      payload: id,
-    });
+    // dispatch({
+    //   type: "todos/remove",
+    //   payload: id,
+    // });
+    await dispatch(delTodoAction(id));
+    // 刷新
+    await dispatch(getTodosAction());
   };
 
   const itemClassNames = (completed) =>

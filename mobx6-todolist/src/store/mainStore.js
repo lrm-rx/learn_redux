@@ -5,7 +5,7 @@ import {
   makeAutoObservable,
   computed,
 } from "mobx";
-import request from "@/api/todolist";
+import request from "@/api/request";
 
 class MainStore {
   constructor(rootStore) {
