@@ -1,6 +1,9 @@
 import React, { memo, useState } from "react";
+import { getTodoAddtAction } from "../../store/actionCreators";
+import { useDispatch } from "react-redux";
 
 const TodoHeader = memo((props) => {
+  const pispatch = useDispatch();
   const [name, setName] = useState("");
 
   const handleKeyUp = (e) => {
@@ -8,7 +11,7 @@ const TodoHeader = memo((props) => {
       if (name.trim() === "") {
         return alert("不能为空");
       }
-      // todo
+      pispatch(getTodoAddtAction(name));
       setName("");
     }
   };

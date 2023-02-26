@@ -1,7 +1,13 @@
 import React, { memo, useState, useRef } from "react";
 import classNames from "classnames";
+import {
+  getTodoDeltAction,
+  getTodoUpdatetAction,
+} from "../../store/actionCreators";
+import { useDispatch } from "react-redux";
 
 const TodoItem = memo((props) => {
+  const dispatch = useDispatch();
   const { item } = props;
   const [isEditing, setIsEditing] = useState(false);
   const [currentName, setCurrentName] = useState("");
@@ -23,7 +29,7 @@ const TodoItem = memo((props) => {
     }
     if (e.key === "Enter") {
       if (currentName.trim() === "") return alert("写点啥吧~");
-      // props.mainStore.updateTodo(props.item.id, "name", currentName);
+      dispatch(getTodoUpdatetAction(props.item.id, "name", currentName));
       setIsEditing(false);
       setCurrentName("");
     }
@@ -37,16 +43,16 @@ const TodoItem = memo((props) => {
       })}
     >
       <div className="view">
-        <input
+        {/* <input
           className="toggle"
           type="checkbox"
           checked={item.done}
           onChange={() => {}}
-        />
+        /> */}
         <label onDoubleClick={handleDBlClick}>{item.name}</label>
         <button
           className="destroy"
-          onClick={() => props.mainStore.delTodo(item.id)}
+          onClick={() => dispatch(getTodoDeltAction(item.id))}
         ></button>
       </div>
       <input

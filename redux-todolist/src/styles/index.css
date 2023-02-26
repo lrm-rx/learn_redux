@@ -118,6 +118,14 @@ body {
   bottom: 100%;
 }
 
+.no-data {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
 .toggle-all + label {
   display: flex;
   align-items: center;

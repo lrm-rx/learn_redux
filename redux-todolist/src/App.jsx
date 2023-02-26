@@ -13,7 +13,7 @@ const App = memo(() => {
       <div className="todo-app">
         <TodoHeader />
         <TodoMain />
-        <TodoFooter />
+        {/* <TodoFooter /> */}
       </div>
     </Provider>
   );
