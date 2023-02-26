@@ -8,7 +8,7 @@ import { getTodosAction } from "./store/modules/todoSlice";
 
 const App = memo(() => {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos.todoList);
   useEffect(() => {
     dispatch(getTodosAction());
     return () => {};

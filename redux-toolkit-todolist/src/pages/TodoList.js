@@ -3,23 +3,27 @@ import { BiCircle, BiCheckCircle } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
-import { delTodoAction, getTodosAction } from "../store/modules/todoSlice";
+import {
+  delTodoAction,
+  getTodosAction,
+  markCompleted,
+  markNotCompleted,
+} from "../store/modules/todoSlice";
 
 const TodoList = memo((props) => {
   const dispatch = useDispatch();
 
   const toggleCompleted = (id, completed) => {
-    completed
-      ? dispatch(
-          dispatch({
-            type: "todos/markNotCompleted",
-            payload: id,
-          })
-        )
-      : dispatch({
-          type: "todos/markCompleted",
-          payload: id,
-        });
+    // completed
+    //   ? dispatch({
+    //       type: "todos/markNotCompleted",
+    //       payload: id,
+    //     })
+    //   : dispatch({
+    //       type: "todos/markCompleted",
+    //       payload: id,
+    //     });
+    completed ? dispatch(markNotCompleted(id)) : dispatch(markCompleted(id));
   };
 
   const onDeleteTodo = async (e, id) => {
@@ -29,8 +33,6 @@ const TodoList = memo((props) => {
     //   payload: id,
     // });
     await dispatch(delTodoAction(id));
-    // 刷新
-    await dispatch(getTodosAction());
   };
 
   const itemClassNames = (completed) =>

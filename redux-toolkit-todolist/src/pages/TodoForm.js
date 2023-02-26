@@ -5,7 +5,7 @@ import { addAction } from "../store/modules/todoSlice";
 import { getTodosAction } from "../store/modules/todoSlice";
 
 const TodoForm = memo((props) => {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos.todoList);
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
 
@@ -28,7 +28,6 @@ const TodoForm = memo((props) => {
       return;
     }
     await dispatch(addAction(title));
-    await dispatch(getTodosAction());
     setTitle("");
   };
 
