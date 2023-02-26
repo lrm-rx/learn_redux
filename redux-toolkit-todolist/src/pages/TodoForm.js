@@ -1,8 +1,6 @@
-import { memo } from "react";
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addAction } from "../store/modules/todoSlice";
-import { getTodosAction } from "../store/modules/todoSlice";
 
 const TodoForm = memo((props) => {
   const todos = useSelector((state) => state.todos.todoList);
